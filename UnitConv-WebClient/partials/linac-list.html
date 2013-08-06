@@ -1,0 +1,28 @@
+
+
+ <div ng-Controller="LinacListController" class="container-right">
+     
+            <table class="table table-striped" ng-repeat = "linacDevice in linacDevices | filter:query ">
+                <tbody>
+                <tr>
+                    <th>Vendor</th>
+                    <th>serialNumber</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>typeDescription</th>
+                    <th>InstallId</th>
+                </tr>
+                <tr>
+                    <td>{{linacDevice.vendor}}</td>
+                    <td>{{linacDevice.serialNumber}}</td>
+                    <td>{{linacDevice.system}}</td>
+                    <td>{{linacDevice.componentType}}</td>
+                    <td>{{linacDevice.inventoryId}}</td>
+                    <td>{{linacDevice.typeDescription}}</td>
+                    <td>{{linacDevice.installId}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    

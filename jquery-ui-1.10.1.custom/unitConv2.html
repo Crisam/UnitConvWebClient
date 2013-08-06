@@ -1,0 +1,90 @@
+<!doctype html>
+<html data-ng-app="UCDeviceList">
+<head>
+    <title>UnitConv WebClient</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.5/angular.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/style.css">
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/multilist.css">
+    <link href="style.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">   
+    <script src="js/controller.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/configuration.js"></script>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div ng-Controller="DeviceListController">
+            <button class="btn btn-warning">Total Devices: {{devices.length}}</button>
+            <span class="caret"></span>
+            <span class="caret"></span>
+            <button class="btn btn-warning">Total Systems: {{systemsdata.length}}</button>
+            <a class="brand" href="unitConv2.html">UnitConv</a>
+        </div>
+    </div>
+</div>
+
+<!-- Left Div Start-->
+
+     <div class=" container-left well container scroll"> 
+      
+      <hr>  
+
+      <ul  class="multilist">
+                 <li> <input ng-model="query" type="text" placeholder="Filter Devices by NAME ..." /></li> 
+                <li class="multilist_header">SEARCH SYSTEMS</li>
+                <li><span class="list3 multilist_item"><a href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/linacs">Linac</a></span></li>
+                <li><span class="list3 multilist_item"><a href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/bsts">BST</a></span></li>
+                <li><span class="list3 multilist_item"><a href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/lbts">Lbt</a></span></li>
+                <li><span class="list3 multilist_item"><a href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/boosters">Booster</a></span></li>
+                <li><span class="list3 multilist_item"><a href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/storage_rings">Storage Ring</a></span></li>
+                <li><span class="list3 multilist_item">From <input type="text" /> to <input type="text" /></span></li>
+            </ul>
+             </ul>
+        <hr>
+     <select  ng-model="orderProp"placeholder= " Sort by:">
+     <option value="name">Alphabetical</option>
+     <option value="age">Name</option>
+    </select>
+      </di
+    
+      <!--Left Div End -->
+
+       
+      <!-- Right Div End -->
+         <div ng-view></div>
+
+         <div ng-controller="DeviceListController" class="container-endRight well container scroll"> 
+          
+            <ul>
+<li ng-repeat="device in devices | filter:query | orderBy:orderProp">
+{{device.name}}
+<p><hr>{{device.system}}</p>
+</li>
+</ul>
+         </div>
+
+          
+            
+    
+   
+
+
+        <!-- Placed at the end of the document so the pages load faster--> 
+        <script src="static/js/jquery-2.0.2.js"></script>
+        <script src="static/js/jquery.cookie.js"></script>
+        <script src="static/js/bootstrap.js"></script>
+        <script src="static/js/moment.min.js"></script>
+        <script src="static/js/multilist.js"></script>
+        <script src="static/js/mustache.js"></script>
+        <script src="static/js/configuration.js"></script>
+        <script src="static/js/rest.js"></script>
+        <script src="static/js/index.js"></script>
+        <script src="static/js/search.js"></script>
+        <!-- Kendo UI Web combined JavaScript-->
+        <script src="js/kendo.web.min.js"></script>
+</body>
+</html>

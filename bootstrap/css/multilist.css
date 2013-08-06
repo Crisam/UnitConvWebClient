@@ -1,0 +1,48 @@
+
+.multilist {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.multilist_item {
+    color: #0088CC;
+    cursor: pointer;
+    display: block;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+.multilist_item:hover {
+    background-color: #EEEEEE;
+    color: #005580;
+}
+.multilist_header {
+    color: #999999;
+    font-size: 11px;
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+input.filter_search {
+    display: inline-block;
+    height: 15px;
+    margin: 5px;
+    padding: 4px 6px;
+    width: 88%;
+}
+.multilist_clicked, .multilist_clicked:hover {
+    background-color: #0088CC;
+    color: #FFFFFF;
+}
+.list, .list2, .list3 {
+}
+.multilist_icons {
+    display: none;
+}
+.list3 > input {
+    height: 15px;
+    margin: 0;
+    width: 45px;
+}

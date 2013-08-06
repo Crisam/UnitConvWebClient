@@ -1,0 +1,30 @@
+  
+   
+ <div ng-Controller="StorageRingListController" class="container-right">
+
+
+            <table class="table table-striped" 
+                    ng-repeat = "storageRingDevice in storageRingDevices | filter:query" >
+                <tbody>
+                <tr>
+                    <th>Vendor</th>
+                    <th>serialNumber</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>typeDescription</th>
+                    <th>InstallId</th>
+                </tr>
+                <tr>
+                    <td>{{storageRingDevice.vendor}}</td>
+                    <td>{{storageRingDevice.serialNumber}}</td>
+                    <td>{{storageRingDevice.system}}</td>
+                    <td>{{storageRingDevice.componentType}}</td>
+                    <td>{{storageRingDevice.inventoryId}}</td>
+                    <td>{{storageRingDevice.typeDescription}}</td>
+                    <td>{{storageRingDevice.installId}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    

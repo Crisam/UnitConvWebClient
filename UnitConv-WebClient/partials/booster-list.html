@@ -1,0 +1,35 @@
+
+    
+    <!--	
+        <div ng-model="systems" ng-init= "systems = [{label:'Choose a device'},{label:'Linac',value:'Linac'},{label:'LBT',value:'LBT'},{label:'B.R.',value:'B.R.'},{label:'BST',value:'BST'}, {label:'S.R.',value:'S.R.'},{label:'Booster',value:'Booster'},{label:'Storage Ring',value:'Storage Ring'}]">
+            <ul>
+                <select ng-model="query" value="Choose a Device" ng-options = "c.label for c in systems"></select>
+            </ul>
+       
+    -->
+ <div ng-Controller="BoosterListController" class="container-right">
+            
+            <table class="table table-striped" ng-repeat = "boosterDevice in boosterDevices  | filter:query">
+                <tbody>
+                <tr>
+                    <th>Vendor</th>
+                    <th>serialNumber</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>typeDescription</th>
+                    <th>InstallId</th>
+                </tr>
+                <tr>
+                    <td>{{boosterDevice.vendor}}</td>
+                    <td>{{boosterDevice.serialNumber}}</td>
+                    <td>{{boosterDevice.system}}</td>
+                    <td>{{boosterDevice.componentType}}</td>
+                    <td>{{boosterDevice.inventoryId}}</td>
+                    <td>{{boosterDevice.typeDescription}}</td>
+                    <td>{{boosterDevice.installId}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    

@@ -1,0 +1,38 @@
+
+/*
+   Document   : style
+   Created on : July,12,2013 8:10 AM
+   Author     : azuramei
+   Description:
+       Purpose of the stylesheet follows.
+*/
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.table-right/*Set the right edge of the image 5px to the left of the right edge of its containing element*/
+{
+    float:left;
+    position: relative;
+    right: 5px;
+    top: 40px;
+    width: 50%;
+    bottom: 0px;
+
+}
+.ul
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    display:inline;
+}
+.system-list
+{
+    float:left;
+    position:relative;
+}

@@ -1,0 +1,47 @@
+
+    
+    <!--	
+        <div ng-model="systems" ng-init= "systems = [{label:'Choose a device'},{label:'Linac',value:'Linac'},{label:'LBT',value:'LBT'},{label:'B.R.',value:'B.R.'},{label:'BST',value:'BST'}, {label:'S.R.',value:'S.R.'},{label:'Booster',value:'Booster'},{label:'Storage Ring',value:'Storage Ring'}]">
+            <ul>
+                <select ng-model="query" value="Choose a Device" ng-options = "c.label for c in systems"></select>
+            </ul>
+
+             <td><a ng-href="http://localhost:8000/magnets/devices/?name={{boosterDevice.name}}">{{boosterDevice.name}}</a></td>
+             <div class="container-endRight well container scroll" ng-model="deviceName" ng-init ="name =[{{boosterDevices.name}}] ">
+              <ul> 
+                <select ng-options = "name in boosterDevices">
+                    {{boosterDevice.name}}
+                </select>
+                <ul>
+              </div>
+       
+    -->
+ <div ng-Controller="BoosterListController">
+            <table class="table table-hover well container-right">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Vendor</th>
+                    <th>Serial Number</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>Type Description</th>
+                    <th>InstallId</th>
+
+                </tr>
+                <tr ng-repeat = "boosterDevice in boosterDevices  | filter:query | limitTo:limit | orderBy:orderProp ">
+                    <td><a ng-href="http://localhost:8000/static/jquery-ui-1.10.1.custom/unitConv2.html#/names">{{boosterDevice.name}}</a></td>
+                    <td>{{boosterDevice.vendor}}</td>
+                    <td>{{boosterDevice.serialNumber}}</td>
+                    <td>{{boosterDevice.system}}</td>
+                    <td>{{boosterDevice.componentType}}</td>
+                    <td>{{boosterDevice.inventoryId}}</td>
+                    <td>{{boosterDevice.typeDescription}}</td>
+                    <td>{{boosterDevice.installId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+              
+        </div>
+    

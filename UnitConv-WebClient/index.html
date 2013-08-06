@@ -1,0 +1,81 @@
+<!doctype html>
+<html data-ng-app="UCDeviceList">
+<head>
+    <title>UnitConv WebClient</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.5/angular.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8000/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- kendo UI combined css-->
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">   
+ </head>
+<body>
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div ng-Controller="DeviceListController">
+
+            <button class="btn btn-warning">Total Devices: {{devices.length}}</button>
+            <span class="caret"></span>
+            <span class="caret"></span>
+            <button class="btn btn-warning">Total Systems: {{systemsdata.length}}</button>
+            <a class="brand" href="index.html">UnitConv</a>
+        </div>
+    </div>
+</div>
+<div class="container-left">
+<!-- Left Div Start-->
+
+      <div class="well container-scroll"> 
+        <ul class="multilist">
+                <ol class="multilist_header">Current Systems</ol>
+                <ol><span class="list3 multilist_item"></span></ol>
+        </ul>
+
+    <ul>
+      <input  ng-model="query" type="text" placeholder="Filter Devices ..." />
+     <ol><a href="http://localhost:8000/static/unitConv-webclient/unitConv2.html#/linacs">Linac </a></ol>
+    <ol><a href="http://localhost:8000/static/UnitConv-WebClient/unitConv2.html#/bsts">BST</a></ol>
+    <ol><a href="http://localhost:8000/static/unitConv-webclient/unitConv2.html#/lbts">Lbt</a></ol>
+    <ol><a href="http://localhost:8000/static/unitConv-webclient/unitConv2.html#/boosters">Booster</a></ol> 
+    <ol><a href="http://localhost:8000/static/unitConv-webclient/unitConv2.html#/storage_rings">Storage Ring</a></ol>
+                 
+    </ul>
+      <div id="example" class="k-content">
+    <div class="chart-wrapper">
+        <div id="chart" style="background: center no-repeat url('../../content/shared/styles/world-map.png');"></div>
+    </div>
+
+</div>
+        
+       
+      <!-- Right Div End -->
+         <div ng-view></div>
+
+
+    </div>
+        
+
+        <!--Place scripts at the bottom to help them load faster. -->
+        <script src="app/js/controllers.js"></script>
+        <script src="app/js/app.js"></script>
+        <script src="app/js/configuration.js"></script>
+        <script src="static/js/multilist.js"></script>
+        <script src="js/jquery.min.js"></script>
+       
+        
+
+         <!--Kendo UI Web combined JavaScript-->
+       <script src="kendo/js/jquery-1.8.2.min.js"></script>
+       <script src="kendo/js/angular-1.0.4.min.js"></script>
+       <script src="kendo/js/kendo.all.min.js"></script>
+       <script src="kendo/js/angular-kendo.js"></script>
+
+    </body>
+
+</html>

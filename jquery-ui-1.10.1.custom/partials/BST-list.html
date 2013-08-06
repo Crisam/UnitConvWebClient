@@ -1,0 +1,30 @@
+
+
+ <div ng-Controller="BstListController">
+     <table class="table table-hover table-striped well container-right">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Vendor</th>
+                    <th>Serial Number</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>Type Description</th>
+                    <th>InstallId</th>
+
+                </tr>
+                <tr ng-repeat = "BstDevice in BstDevices | filter:query | limitTo:limit">
+                    <td>{{BstDevice.name}}</td>
+                    <td>{{BstDevice.vendor}}</td>
+                    <td>{{BstDevice.serialNumber}}</td>
+                    <td>{{BstDevice.system}}</td>
+                    <td>{{BstDevice.componentType}}</td>
+                    <td>{{BstDevice.inventoryId}}</td>
+                    <td>{{BstDevice.typeDescription}}</td>
+                    <td>{{BstDevice.installId}}</td>
+                   
+                </tr>
+                </tbody>
+            </table>
+        </div>

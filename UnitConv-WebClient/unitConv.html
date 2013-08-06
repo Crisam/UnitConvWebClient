@@ -1,0 +1,92 @@
+<!doctype html>
+<html  ng-app lang="en">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.5/angular.js"></script>
+	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="static/bootstrap/css/style.css">
+      <script type="text/javascript" src="organization.js"></script>
+     <link rel="stylesheet" href="static/bootstrap/css/multilist.css">
+     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+     <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+
+ </head>
+  <body ng-Controller="DeviceListController">
+
+
+  <div class="navbar navbar-inverse">
+     <div class="navbar-inner">
+         <div class="container">
+             <button class="btn btn-primary">Current Devices: {{devices.length}}</button>
+             <span class="caret"></span>
+               <button class="btn btn-primary">Current Systems: {{systems.length}} </button>
+             <span class="caret"></span>
+
+             <a class="brand" href="unitConv.html">UnitConv</a>
+
+         </div>
+ </div>
+
+    <!-- Left Div Start--->
+    <div ng-Controller="DeviceListController"
+      class="container-left">
+
+            <div ng-model="systems" ng-init= "systems = [{label:'Linac',value:'Linac'},{label:'LBT',value:'LBT'},{label:'B.R.',value:'B.R.'},{label:'BST',value:'BST'}, {label:'S.R.',value:'S.R.'},{label:'Booster',value:'Booster'},{label:'Storage Ring',value:'Storage Ring'}]">
+            <ul >
+                <select  ng-model="query"  ng-options = "c.label for c in systems"></select>
+            </ul>
+
+        </div>
+
+
+
+            <div class="container-right">
+
+            <table class="table" ng-repeat="device in devices |filter:{system:query.value}">
+
+                <tbody>
+                <tr>
+                    <th>Vendor</th>
+                    <th>serialNumber</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>typeDescription</th>
+                    <th>InstallId</th>
+                </tr>
+                <tr>
+                    <td>{{device.vendor}}</td>
+                    <td>{{device.serialNumber}}</td>
+                    <td><b>{{device.system}}</b></td>
+                    <td>{{device.componentType}}</td>
+                    <td>{{device.inventoryId}}</td>
+                    <td>{{device.typeDescription}}</td>
+                    <td>{{device.installId}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            </div>
+
+            <div ng-view></div>
+
+
+
+            <!-- Placed at the end of the document so the pages load faster
+            <script src="static/js/jquery-2.0.2.js"></script>
+            <script src="static/js/jquery.cookie.js"></script>
+            <script src="static/js/bootstrap.js"></script>
+            <script src="static/js/moment.min.js"></script>
+            <script src="static/js/multilist.js"></script>
+            <script src="static/js/mustache.js"></script>
+            <script src="static/js/configuration.js"></script>
+            <script src="static/js/rest.js"></script>
+            <script src="static/js/index.js"></script>
+            <script src="static/js/search.js"></script>
+            <!-- Kendo_UI
+            <script src="js/kendo.web.min.js"></script>
+            --->
+
+</body>
+</html>

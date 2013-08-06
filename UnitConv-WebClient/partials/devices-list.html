@@ -1,0 +1,29 @@
+<!-- devices-list.html -->
+
+
+
+ <div ng-Controller="DeviceListController" class="container-right">
+            
+            <table class="table table-striped" ng-repeat = "device in devices | filter:query ">
+                <tbody>
+                <tr>
+                    <th>Vendor</th>
+                    <th>serialNumber</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>typeDescription</th>
+                    <th>InstallId</th>
+                </tr>
+                <tr>
+                    <td>{{device.vendor}}</td>
+                    <td>{{device.serialNumber}}</td>
+                    <td>{{device.system}}</td>
+                    <td>{{device.componentType}}</td>
+                    <td>{{device.inventoryId}}</td>
+                    <td>{{device.typeDescription}}</td>
+                    <td>{{device.installId}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>

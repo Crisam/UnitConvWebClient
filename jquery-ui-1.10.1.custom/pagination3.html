@@ -1,0 +1,121 @@
+<html xmlns:ng="http://angularjs.org" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+    <script src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
+</head>
+<body>
+<div >
+    <script type="text/javascript">
+        var myApp = angular.module('myApp', []);
+
+        myApp.factory('Avengers', function () {
+            var Avengers = {};
+            Avengers.cast = [{
+                Name: "Robert Downey Jr.",
+                Character: "Tony Stark / Iron Man"
+            }, {
+                Name: "Chris Evans",
+                Character: "Steve Rogers / Captain America}"
+            }, {
+                Name: "Mark Ruffalo",
+                Character: "Bruce Banner / The Hulk"
+            }, {
+                Name: "Chris Hemsworth",
+                Character: "Thor"
+            }, {
+                Name: "Scarlett Johansson",
+                Character: "Natasha Romanoff / Black Widow"
+            }, {
+                Name: "Jeremy Renner",
+                Character: "Clint Barton / Hawkeye"
+            }, {
+                Name: "Tom Hiddleston",
+                Character: "Loki"
+            }, {
+                Name: "Clark Gregg",
+                Character: "Agent Phil Coulson"
+            }, {
+                Name: "Cobie Smulders",
+                Character: "Agent Maria Hill"
+            }, {
+                Name: "Stellan Skarsgard",
+                Character: "Selvig"
+            }, {
+                Name: "Samuel L. Jackson",
+                Character: "Nick Fury"
+            }, {
+                Name: "Gwyneth Paltrow",
+                Character: "Pepper Potts"
+            }, {
+                Name: "Paul Bettany",
+                Character: "Jarvis (voice)"
+            }, {
+                Name: "Alexis Denisof",
+                Character: "The Other"
+            }, {
+                Name: "Tina Benko",
+                Character: "NASA Scientist"
+            }].sort(function (x, y) {
+                        return ((x.Name == y.Name) ? 0 : ((x.Name > y.Name) ? 1 : -1))
+                    });
+
+            return Avengers;
+        });
+
+        function AvengersCtrl($scope, Avengers) {
+            $scope.avengers = Avengers;
+
+            $scope.castKeys = getUniqueKeys($scope.avengers.cast);
+
+            $scope.castKeysValue = $scope.castKeys[0];
+
+            $scope.totalKeys = $scope.castKeys.length;
+
+        }
+
+        function getUniqueKeys(arr) {
+            var key, keys = [];
+            var L = arr.length;
+            for (var i = 0; i < L; i++) {
+                var obj = arr[i];
+                for (var j in obj) {
+                    if (keys.indexOf(j) < 0) {
+                        keys.push(j);
+                    }
+                }
+            }
+            console.log(keys);
+
+            return keys;
+        }
+    </script>
+    <div data-ng-controller="AvengersCtrl" data-ng-cloak="">
+        <form class="custom">
+            <label for="searchFilter">Filter by:</label>
+            <input id="searchFilter" placeholder="Enter name or character here to filter results"
+                   type="text" data-ng-model="search.$">
+            <label for="sortby">Sort by:</label>
+            <select id="sortby" class="small" data-ng-model="sortOrder">
+                <option value="" disabled>Please select...</option>
+                <option data-ng-repeat="key in castKeys" value="{{key}}">{{key}}</option>
+                <option data-ng-repeat="key in castKeys" value="-{{key}}">{{key}} asc</option>
+            </select>
+        </form>
+        <p>There are <strong>{{(avengers.cast|filter:search.$).length}}</strong> result<span data-ng-show="(avengers.cast|filter:search.$).length > 1">s</span><span data-ng-show="search.$.length"> matching &quot;{{search.$}}&quot;</span>.</p>
+        <table
+                class="pricing-table">
+            <tr>
+                <th data-ng-repeat="key in castKeys">{{key}}</th>
+            </tr>
+            <tr data-ng-repeat="actor in avengers.cast | orderBy:sortOrder | limitTo:100 | filter:search">
+                <td data-ng-class-odd="'odd'">{{actor.Name}}</td>
+                <td data-ng-class-odd="'odd'">{{actor.Character}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

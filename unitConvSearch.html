@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+   <script src="js/jquery-1.9.1.js"></script>
+   </head>
+ <script>
+
+ $(document).ready(function()  {
+  //create a keyup function for the input text box with an id of 'search'
+  $('#find').keypress(function(){
+    //create a variable named searchField where the value of the #search input box is stored
+     var searchField = $('#find').val();
+          // test the function with a console log  of searchField
+                  //console.log(searchField); //searchField should display everything from the textbox
+            serviceUrl = 'http://localhost:8000/magnets/devices/?name=';
+
+   $.getJSON(serviceUrl + searchField,function(data){
+                
+                console.log(data);
+                var output = '<ul class = "searchresults">' ;
+                $.each(data,function(key,val){
+                    output += '<li>';
+                    output += '<h2>' + val.name + '</h2>';
+                    output += '</li>';
+                });
+                output += '</ul>';
+                $('#update').html(output);
+                //console.log(output);
+          });
+
+  });
+});
+ </script>
+  <body>
+          <div id="searcharea">
+             <input id="find" type="text"/>
+              <div id ="update"></div>
+
+
+</body>
+</html>

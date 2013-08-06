@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get a "Good day" greeting if the time is less than 20:00.</p>
+
+<button onclick="crisamFunction()">Try it</button>
+
+<p id="practice"></p>
+
+<script>
+function crisamFunction(){
+var x="";
+var jikan = new Date().getHours();
+if (jikan < 10)
+    {
+    x = "ohayou gozaimasu!";
+    }
+else if (jikan<20)
+  {
+    x="Konnnichiwa";
+  }
+else
+{
+    x = "Konbanwa"; 
+}
+    
+document.getElementById("practice").innerHTML=x;
+}
+</script>
+
+</body>
+</html>

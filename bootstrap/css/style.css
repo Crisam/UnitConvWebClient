@@ -1,0 +1,211 @@
+/* 
+    Document   : style
+    Created on : May 31, 2013, 2:32:33 PM
+    Author     : user
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.top-margin {
+	margin-top: 60px;
+}
+
+.well {
+	height:;
+}
+
+/* Style log START */
+.log {
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid #dddddd;
+	padding: 5px;
+}
+
+.log:hover {
+	background-color: #eeeeee;
+}
+
+.log_click {
+	background-color: white;
+}
+
+.log_click:hover {
+	background-color: white;
+}
+.log-last {
+	display: block;
+	cursor: pointer;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	padding: 5px;
+}
+
+.log-last:hover {
+	background-color: #dd1144;
+}
+/* Style log END */
+
+.olog-nav {
+	background-color: #dd1144;
+	margin: 0;
+	padding: 7px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+/*
+
+	bottom: 0;
+    left: 20px;
+    position: relative;
+    top: 6px;
+    width: 16%;
+
+*/
+.container-left {
+   bottom: 0;
+    left: 43px;
+    position: fixed;
+    top: 66px;
+    width: 19%; 
+}
+
+.container-endRight {
+	bottom: 0;
+    left: 76%;
+    position: fixed;
+    top: 64px;
+    width: 20%;
+}
+.container-right{
+	 bottom: 2px;
+    position: fixed;
+    right: 351px;
+    top: 66px;
+    width: 86%;
+
+
+}
+
+.container-right-lbts {
+    bottom: 2px;
+    position: fixed;
+    right: 296px;
+    top: 66px;
+    width: 86%;
+
+
+.container-middle-right {
+	position: fixed;
+	right: 0px;
+	top: 40px;
+	width: 80%;
+	bottom: 0px;
+}
+
+/* Scrollable columns START*/
+.well-container-scroll {
+	position: relative;
+	top: 5px;
+	right: 0px;
+	left: 0px;
+	bottom: 5px;
+	overflow-y: none;
+}
+
+.container-scroll-last-one {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	left: 5px;
+	bottom: 5px;
+	overflow-y: auto;
+}
+/* Scrollable columns END*/
+
+.float_right {
+	float: right;
+}
+
+.float_right_padding {
+	padding: 3px;
+}
+
+.close_label, .close_label:hover, .close_label:focus {
+	color: white;
+	text-decoration: none;
+}
+
+.user_dropdown_menu {
+	padding: 10px;
+	padding-bottom: 0px;
+}
+
+.search_input {
+	width: 110%;
+}
+
+.form-search {
+	margin: 5px;
+	margin-bottom: 10px;
+}
+
+.log_title {
+	padding: 10px 5px 15px 5px;
+	margin: 0;
+	border-bottom: 1px solid #dd1144;
+}
+
+.log_body {
+	padding: 10px;
+	border-bottom: 1px solid #dddddd;
+	background-color: white;
+}
+
+.log_title > h5 {
+	padding:0;
+	margin: 0;
+}
+
+.log_details {
+	padding: 5px;
+	margin: 0;
+	border-bottom: 1px solid #dddddd;
+	background-color: #eeeeee;
+}
+
+.display_none {
+	display: none;
+}
+
+.log_show_details {
+	font-weight: normal;
+	text-decoration: none;
+	padding-left: 10px;
+}
+
+.log_show_details:hover {
+	text-decoration: none;
+	color: #0088cc;
+}
+
+.log_attachments {
+	padding: 5px;
+	margin: 0;
+	background-color: #eeeeee;
+	border-bottom: 1px solid #dddddd;
+	display: none;
+}
+
+.attachment_info {
+	color: #aaaaaa;
+}

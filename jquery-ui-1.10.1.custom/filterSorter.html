@@ -1,0 +1,446 @@
+<html xmlns:ng="http://angularjs.org" ng-app lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet">
+    <script src="http://code.angularjs.org/1.1.0/angular.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var sortingOrder = 'name';
+    function ctrlRead($scope, $filter) {
+        // init
+        $scope.sortingOrder = sortingOrder;
+        $scope.reverse = false;
+        $scope.filteredItems = [];
+        $scope.groupedItems = [];
+        $scope.itemsPerPage = 5;
+        $scope.pagedItems = [];
+        $scope.currentPage = 0;
+        $scope.items = [
+            [
+
+                {
+                    "installId": 1,
+                    "vendor": "RI",
+                    "name": "LN-SO2",
+                    "serialNumber": "44",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 1,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 2,
+                    "vendor": "RI",
+                    "name": "LN-SO3",
+                    "serialNumber": "43",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 2,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 3,
+                    "vendor": "RI",
+                    "name": "LN-SO4",
+                    "serialNumber": "45",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 3,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 4,
+                    "vendor": "RI",
+                    "name": "LN-SO5",
+                    "serialNumber": "53",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 4,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 5,
+                    "vendor": "RI",
+                    "name": "LN-SO6",
+                    "serialNumber": "55",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 5,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 6,
+                    "vendor": "RI",
+                    "name": "LN-SO7",
+                    "serialNumber": "60",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 6,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 7,
+                    "vendor": "RI",
+                    "name": "LN-SO8",
+                    "serialNumber": "62",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 7,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 8,
+                    "vendor": "RI",
+                    "name": "LN-SO9",
+                    "serialNumber": "50",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 8,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 9,
+                    "vendor": "RI",
+                    "name": "LN-SO10",
+                    "serialNumber": "51",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 9,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 10,
+                    "vendor": "RI",
+                    "name": "LN-SO11",
+                    "serialNumber": "59",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 10,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 11,
+                    "vendor": "RI",
+                    "name": "LN-SO12",
+                    "serialNumber": "46",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 11,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 12,
+                    "vendor": "RI",
+                    "name": "LN-SO13",
+                    "serialNumber": "48",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 12,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 13,
+                    "vendor": "RI",
+                    "name": "LN-SO14",
+                    "serialNumber": "49",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 13,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 14,
+                    "vendor": "RI",
+                    "name": "LN-SO15",
+                    "serialNumber": "4",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 14,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 15,
+                    "vendor": "RI",
+                    "name": "LN-SO16",
+                    "serialNumber": "5",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 15,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 16,
+                    "vendor": "RI",
+                    "name": "LN-SO17",
+                    "serialNumber": "47",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 16,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 17,
+                    "vendor": "RI",
+                    "name": "LN-SO18",
+                    "serialNumber": "58",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 17,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 18,
+                    "vendor": "RI",
+                    "name": "LN-SO19",
+                    "serialNumber": "57",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 18,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 19,
+                    "vendor": "RI",
+                    "name": "LN-SO20",
+                    "serialNumber": "56",
+                    "system": "Linac",
+                    "componentType": "LN Solenoid",
+                    "inventoryId": 19,
+                    "typeDescription": "solenoid accelerator for linac"
+                },
+                {
+                    "installId": 20,
+                    "vendor": "RI",
+                    "name": "LN-Q1",
+                    "serialNumber": "1",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 20,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 21,
+                    "vendor": "RI",
+                    "name": "LN-Q2",
+                    "serialNumber": "2",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 21,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 22,
+                    "vendor": "RI",
+                    "name": "LN-Q3",
+                    "serialNumber": "3",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 22,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 23,
+                    "vendor": "RI",
+                    "name": "LN-Q4",
+                    "serialNumber": "4",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 23,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 24,
+                    "vendor": "RI",
+                    "name": "LN-Q5",
+                    "serialNumber": "5",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 24,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 25,
+                    "vendor": "RI",
+                    "name": "LN-Q6",
+                    "serialNumber": "6",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 25,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 26,
+                    "vendor": "RI",
+                    "name": "LN-Q7",
+                    "serialNumber": "7",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 26,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 27,
+                    "vendor": "RI",
+                    "name": "LN-Q8",
+                    "serialNumber": "8",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 27,
+                    "typeDescription": "quadrupole magnet for linac"
+                },
+                {
+                    "installId": 28,
+                    "vendor": "RI",
+                    "name": "LN-Q9",
+                    "serialNumber": "9",
+                    "system": "Linac",
+                    "componentType": "LN Quadrupole",
+                    "inventoryId": 28,
+                    "typeDescription": "quadrupole magnet for linac"
+                }
+
+            ]
+        ];
+
+        var searchMatch = function (haystack, needle) {
+            if (!needle) {
+                return true;
+            }
+            return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+        };
+
+        // init the filtered items
+        $scope.search = function () {
+            $scope.filteredItems = $filter('filter')($scope.items, function (item) {
+                for(var attr in item) {
+                          if (searchMatch(item[attr], $scope.query))
+                        return true;
+                }
+                return false;
+            });
+            // take care of the sorting order
+            if ($scope.sortingOrder !== '') {
+                $scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sortingOrder, $scope.reverse);
+            }
+            $scope.currentPage = 0;
+            // now group by pages
+            $scope.groupToPages();
+        };
+
+        // calculate page in place
+        $scope.groupToPages = function () {
+            $scope.pagedItems = [];
+
+            for (var i = 0; i < $scope.filteredItems.length; i++) {
+                if (i % $scope.itemsPerPage === 0) {
+                    $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.filteredItems[i] ];
+                } else {
+                    $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.filteredItems[i]);
+                }
+            }
+        };
+
+        $scope.range = function (start, end) {
+            var ret = [];
+            if (!end) {
+                end = start;
+                start = 0;
+            }
+            for (var i = start; i < end; i++) {
+                ret.push(i);
+            }
+            return ret;
+        };
+
+        $scope.prevPage = function () {
+            if ($scope.currentPage > 0) {
+                $scope.currentPage--;
+            }
+        };
+
+        $scope.nextPage = function () {
+            if ($scope.currentPage < $scope.pagedItems.length - 1) {
+                $scope.currentPage++;
+            }
+        };
+
+        $scope.setPage = function () {
+            $scope.currentPage = this.n;
+        };
+
+        // functions have been describe process the data for display
+        $scope.search();
+
+        // change sorting order
+        $scope.sort_by = function(newSortingOrder) {
+            if ($scope.sortingOrder == newSortingOrder)
+                $scope.reverse = !$scope.reverse;
+
+            $scope.sortingOrder = newSortingOrder;
+
+            // icon setup
+            $('th i').each(function(){
+                // icon reset
+                $(this).removeClass().addClass('icon-sort');
+            });
+            if ($scope.reverse)
+                $('th.'+new_sorting_order+' i').removeClass().addClass('icon-chevron-up');
+            else
+                $('th.'+new_sorting_order+' i').removeClass().addClass('icon-chevron-down');
+        };
+    };
+    ctrlRead.$inject = ['$scope', '$filter'];
+
+</script>
+</div>
+<div ng-controller="ctrlRead">
+    <div class="input-append">
+        <input type="text" ng-model="query" ng-change="search()" class="input-large search-query" placeholder="Search">
+        <span class="add-on"><i class="icon-search"></i></span>
+    </div>
+    <table class="table table-striped table-condensed table-hover">
+        <thead>
+        <tr>
+            <th class="vendor">Vendor&nbsp;<a ng-click="sort_by('vendor')"><i class="icon-sort"></i></a></th>
+            <th class="name">Name&nbsp;<a ng-click="sort_by('name')"><i class="icon-sort"></i></a></th>
+            <th class="typeDescription">typeDescription&nbsp;<a ng-click="sort_by('typeDescription')"><i class="icon-sort"></i></a></th>
+            <th class="system">System&nbsp;<a ng-click="sort_by('system')"><i class="icon-sort"></i></a></th>
+            <th class="serialNumber">serialNumber&nbsp;<a ng-click="sort_by('serialNumber')"><i class="icon-sort"></i></a></th>
+            <th class="installId">installId&nbsp;<a ng-click="sort_by('installId')"><i class="icon-sort"></i></a></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <td colspan="6">
+            <div class="pagination pull-right">
+                <ul>
+                    <li ng-class="{disabled: currentPage == 0}">
+                        <a href ng-click="prevPage()">« Prev</a>
+                    </li>
+                    <li ng-repeat="n in range(pagedItems.length)"
+                        ng-class="{active: n == currentPage}"
+                        ng-click="setPage()">
+                        <a href ng-bind="n + 1">1</a>
+                    </li>
+                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                        <a href ng-click="nextPage()">Next »</a>
+                    </li>
+                </ul>
+            </div>
+        </td>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+            <td>{{item.vendor}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.typeDescription}}</td>
+            <td>{{item.system}}</td>
+            <td>{{item.installId}}</td>
+            <td>{{item.serialNumber}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

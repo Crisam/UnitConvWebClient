@@ -1,0 +1,39 @@
+
+    
+    <!--	
+        <div ng-model="systems" ng-init= "systems = [{label:'Choose a device'},{label:'Linac',value:'Linac'},{label:'LBT',value:'LBT'},{label:'B.R.',value:'B.R.'},{label:'BST',value:'BST'}, {label:'S.R.',value:'S.R.'},{label:'Booster',value:'Booster'},{label:'Storage Ring',value:'Storage Ring'}]">
+            <ul>
+                <select ng-model="query" value="Choose a Device" ng-options = "c.label for c in systems"></select>
+            </ul>
+             <td><a ng-href="http://localhost:8000/magnets/devices/?name={{boosterDevice.name}}">{{device.name}}</a></td>
+       
+    -->
+ <div ng-Controller="DeviceListController">
+       
+            <table class="table  table-striped table-hover well container-right">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Vendor</th>
+                    <th>Serial Number</th>
+                    <th>System</th>
+                    <th>componentType</th>
+                    <th>inventoryId</th>
+                    <th>Type Description</th>
+                    <th>InstallId</th>
+
+                </tr>
+                <tr ng-repeat = "device in devices | filter:query | limitTo:limit ">
+                    <td>{{device.name}}</td>
+                    <td>{{device.vendor}}</td>
+                    <td>{{device.serialNumber}}</td>
+                    <td>{{device.system}}</td>
+                    <td>{{device.componentType}}</td>
+                    <td>{{device.inventoryId}}</td>
+                    <td>{{device.typeDescription}}</td>
+                    <td>{{device.installId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
